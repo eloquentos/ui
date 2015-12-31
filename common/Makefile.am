@@ -48,9 +48,7 @@ if ENABLE_LIGHT
 	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
 		assets \
 		gtk.css \
-		gtk-contained.css \
 		gtk-dark.css \
-		gtk-contained-dark.css \
 		$(ithemedir)/gtk-3.0
 endif # ENABLE_LIGHT
 
@@ -58,12 +56,12 @@ if !ENABLE_TRANSPARENCY
 
 if ENABLE_LIGHT
 	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
-		gtk-contained-solid.css \
-		$(ithemedir)/gtk-3.0/gtk-contained.css
+		gtk-solid.css \
+		$(ithemedir)/gtk-3.0/gtk.css
 
 	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
-		gtk-contained-solid-dark.css \
-		$(ithemedir)/gtk-3.0/gtk-contained-dark.css
+		gtk-solid-dark.css \
+		$(ithemedir)/gtk-3.0/gtk-dark.css
 endif # ENABLE_LIGHT
 
 endif #!ENABLE_TRANSPARENCY
