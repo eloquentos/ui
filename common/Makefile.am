@@ -8,14 +8,13 @@ install-data-local:
 
 if ENABLE_LIGHT
 	$(MKDIR_P) $(ithemedir)
-	cp --no-preserve=mode,ownership $(srcdir)/index.theme $(ithemedir)
+	cp $(srcdir)/index.theme $(ithemedir)
 endif # ENABLE_LIGHT
-
 
 if ENABLE_GNOME_SHELL
 	$(MKDIR_P) $(ithemedir)/gnome-shell
 
-	cd $(srcdir)/gnome-shell/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
+	cd $(srcdir)/gnome-shell/$(GNOME_VERSION) && cp -R \
 		common-assets \
 		light-assets \
 		gnome-shell.css \
@@ -29,7 +28,7 @@ if ENABLE_GTK2
 if ENABLE_LIGHT
 	$(MKDIR_P) $(ithemedir)/gtk-2.0
 
-	cd $(srcdir)/gtk-2.0 && cp -r --no-preserve=mode,ownership \
+	cd $(srcdir)/gtk-2.0 && cp -R \
 		assets \
 		menubar-toolbar \
 		*.rc \
@@ -45,7 +44,7 @@ if ENABLE_GTK3
 if ENABLE_LIGHT
 	$(MKDIR_P) $(ithemedir)/gtk-3.0
 
-	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
+	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -R \
 		assets \
 		gtk.css \
 		gtk-dark.css \
@@ -55,11 +54,11 @@ endif # ENABLE_LIGHT
 if !ENABLE_TRANSPARENCY
 
 if ENABLE_LIGHT
-	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
+	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -R \
 		gtk-solid.css \
 		$(ithemedir)/gtk-3.0/gtk.css
 
-	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -r --no-preserve=mode,ownership \
+	cd $(srcdir)/gtk-3.0/$(GNOME_VERSION) && cp -R \
 		gtk-solid-dark.css \
 		$(ithemedir)/gtk-3.0/gtk-dark.css
 endif # ENABLE_LIGHT
